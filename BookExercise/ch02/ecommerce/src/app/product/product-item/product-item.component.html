@@ -1,0 +1,38 @@
+<div class="product-container"
+[class]="product.isOnSale ? 'onSale' : 'noSale'">
+    <div class="name">
+        {{product.productName}}
+    </div>
+    <div class="image">
+        <img src="{{product.productImage}}" />
+    </div>
+    <div class="price">
+        $ {{product.productPrice}}
+    </div>
+    <hr />
+        <div class="cart">
+        <table>
+            <tr>
+                <td>Quantity in Cart:</td>
+                <td>
+                    <button (click)="decrementInCart($event)"
+                    [disabled]="product.quantityInCart <= 0"
+                    >
+                    -
+                    </button>
+                </td>
+                <td>
+                    <div class="quantity">
+                    {{product.quantityInCart}}
+                    </div>
+                </td>
+                <td>
+                    <button (click)="incrementInCart($event)">
+                    +
+                    </button>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>

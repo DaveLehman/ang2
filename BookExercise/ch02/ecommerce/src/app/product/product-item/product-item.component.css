@@ -1,0 +1,35 @@
+.product-container {
+    border: 1px solid black;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 10px;
+}
+
+.cart {
+    display: inline-table;
+}
+
+.name {
+    font-size: 24pt;
+}
+.price {
+    font-size: 18pt;
+}
+
+.onSale {
+    background-color: rgb(245, 206, 219);
+}
+
+.noSale {
+    background-color: lightgray;
+}
+
+.onSale .name {
+    color: red;
+}
+
+.onSale .price {
+    color: green;
+}
+
+
