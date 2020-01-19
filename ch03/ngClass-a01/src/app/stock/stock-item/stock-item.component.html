@@ -1,0 +1,11 @@
+<div class="stock-container">
+    <div class="name">{{stock.name + ' (' + stock.code + ')'}}</div>
+    <!-- stockClass is basically a set of keys in a JSON 
+        that allows multiple class properties to be maintained as a set -->
+    <div class="price"
+    [ngClass]="stockClasses">
+        $ {{stock.price}}
+    </div>
+    <button (click)="toggleFavorite($event)"
+        [disabled]="stock.favorite">Add to Favorites</button>       
+</div>

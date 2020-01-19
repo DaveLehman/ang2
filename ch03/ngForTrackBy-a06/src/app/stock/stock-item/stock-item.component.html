@@ -1,0 +1,12 @@
+<div class="stock-container" 
+    *ngFor="let stock of stocks; index as i; trackBy: trackStockByCode">
+    <!-- trackBy ensures that even if we reload all the stocks from the
+        server (thus changing all the object references, Angular will still
+        look at the stock code to decide whether or not to reuse an element 
+        in the DOM-->
+    <div class="name">{{stock.name + ' (' + stock.code + ')'}}</div>
+    <div class="price"
+	[class]="stock.isPositiveChange ? 'positive' : 'negative'">$ {{stock.price}}</div>
+    <button (click)="toggleFavorite($event,i)"
+        [disabled]="stock.favorite">Add to Favorites</button>
+</div>

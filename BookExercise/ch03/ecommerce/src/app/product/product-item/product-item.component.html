@@ -1,0 +1,27 @@
+<div class="product-container"
+[class.onSale]="product.isOnSale"
+[class.noSale]="!product.isOnSale"
+>
+    <div class="name"
+        [class.onSale]="product.isOnSale"
+        [class.noSale]="!product.isOnSale">
+            {{product.productName}}
+    </div>
+    <div class="image">
+        <img src="{{product.productImage}}" />
+    </div>
+    <div class="price">
+        $ {{product.productPrice}}
+    </div>
+    <hr />
+    <div>
+        <button *ngIf="product.quantityInCart > 0" (click)="decrementInCart()">-</button>
+        <!-- The following select box has no effect yet! -->
+        <select>
+          <option [value]="qty" *ngFor="let qty of quantities">{{qty}}</option>
+        </select>
+        <span>{{product.quantityInCart}}</span>
+        <button (click)="incrementInCart()">+</button>
+    </div>
+</div>
+
