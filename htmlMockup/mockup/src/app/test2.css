@@ -1,0 +1,51 @@
+body {
+    margin: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.page-container {
+}
+
+.gridArea {
+    background-color: lightcoral;
+    width: 100%;
+    font-size: 10vh;
+}
+
+table, th, td {
+    margin: 0px;
+    border-collapse: collapse;
+}
+
+.thickBorder {
+    border: 5px solid black;
+}
+
+.thinBorder {
+    border: 1px solid black;
+}
+
+.buttonArea {
+    background-color: lightyellow;
+}
+
+.messageArea {
+    background-color: lightskyblue;
+    height:10px;
+
+}
+
+.solvedCountArea {
+    background-color: lightgreen;
+}
+
+.bottom {
+    height: 20px;
+}
+button {
+    width: 175px;
+    padding-bottom: 5px;
+}

@@ -1,0 +1,60 @@
+
+body {
+    margin: 0px;
+}
+
+table, th, td {
+    margin: 0px;
+    padding: 0px;
+    border-collapse: collapse;
+}
+
+.thickBorder {
+    border: 3px solid black;
+}
+
+.thinBorder {
+    border: 1px solid black;
+}
+.grid {
+    font-size: 3vh;
+    font-weight: bold;
+
+}
+.grid.td {
+    min-width: 7vh;
+    min-height: 7vh;
+}
+button {
+    width:175px;
+    text-align: left;
+}
+
+.gridArea {
+    background-color: indianred;
+    height:100%;
+}
+.buttonArea {
+    padding-top: 10px;
+    width:175px;
+    background-color: cornsilk;
+    float: right;
+
+}
+
+.messageArea{
+    background-color: cornflowerblue;
+}
+
+.solvedCountArea {
+    background-color: lightgreen;
+    float: right;
+}
+
+.bottom-container {
+
+}
+button {
+    width: 175px;
+    margin-bottom:10px;
+}

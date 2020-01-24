@@ -1,0 +1,24 @@
+.top-left {
+    float: left;
+}
+
+.top-right {
+    float:right;
+}
+
+.bottom-left {
+    float:left;
+}
+
+.bottom-right {
+    float:right
+}
+
+.grid {
+    font-size: 10vw;
+}
+
+button {
+    width:175px;
+    text-align: left;
+}
