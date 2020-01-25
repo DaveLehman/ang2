@@ -17,6 +17,10 @@ table {
 .scoreBoard {
     float:left;
 }
+td.rollColumn, td.keepColumn {
+    border-left: solid black 2px;
+    border-right: solid black 2px;
+}
 
 td.scoringTable {
 
@@ -29,4 +33,9 @@ td.scoringTable {
 
 td.thickBorder {
     border: 3px solid black;
+    background-color: lightgray;
+}
+
+.filled {
+    background-color: lightgray;
 }

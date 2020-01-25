@@ -1,0 +1,32 @@
+.product-item {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    width: 300px;
+  }
+  
+  .product-item .details {
+    text-align: center;
+  }
+  .cart {
+      text-align: center;
+      color:black;
+  }
+  .details {
+    font-weight: bold;
+  }
+
+  .product-item.sale {
+    background-color: lightgreen;
+    color: red;
+  }
+
+  .product-item.noSale {
+      background-color: wheat
+  }
+
+  img {
+      max-width: 300px;
+  }
+
