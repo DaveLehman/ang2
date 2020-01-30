@@ -1,0 +1,48 @@
+
+table {
+    border-collapse: collapse;
+}
+
+td.rollColumn, td.keepColumn {
+    border-left: solid lightslategray 2px;
+    border-right: solid lightslategray 2px;
+}
+
+table.scoreBoard {
+    border: 1px solid black;
+}
+
+td.scoreTD {
+    border: 1px solid black;  
+    padding: 2px;
+}
+
+tr.filled {
+    background-color: lightgrey
+}
+
+td.thickBorder {
+    border: 2px solid black;
+}
+
+tr.immutable {
+    background-color: rgb(167, 166, 166);
+}
+
+.gameOver {
+    color: red;
+    font-weight: bold;
+}
+
+.scoreDiv {
+    position:  fixed;
+    left : 300px;
+}
+
+.topSpanText {
+    margin-left: 220px;
+}
+
+.topSpanTextNoButton {
+    margin-left: 290px;
+}

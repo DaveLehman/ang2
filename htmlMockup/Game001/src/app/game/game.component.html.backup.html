@@ -1,0 +1,81 @@
+<div>
+    <button *ngIf="rollable"
+        (click)="RollDice()">{{rollButtonLabel}}</button>
+    <button *ngIf="scoreable">SCORE NOW</button>
+</div>
+<hr />
+
+<div>
+    <table *ngIf="showRollTable">
+        <tr>
+            <td class="rollColumn">Roll These:</td><td></td><td class="keepColumn">{{scoreKeepLabel}}</td>
+        </tr>
+        <tr>
+            <td class="rollColumn">
+                <img *ngIf="!die1.keep" (click)="KeepDie1()" src="{{die1.imagePath}}" />
+            </td>
+            <td>
+                <button *ngIf="!die1.keep" (click)="KeepDie1()">Keep &gt;&gt;</button>
+                <button *ngIf="die1.keep" (click)="RollDie1()">&lt;&lt; Roll</button>
+            </td>
+            <td class="keepColumn">
+                <img *ngIf="die1.keep" (click)="RollDie1()" src="{{die1.imagePath}}" />
+            </td>
+        </tr>
+        <tr>
+            <td class="rollColumn">
+                <img *ngIf="!die2.keep" (click)="KeepDie2()" src="{{die2.imagePath}}" />
+            </td>
+            <td>
+                <button *ngIf="!die2.keep" (click)="KeepDie2()">Keep &gt;&gt;</button>
+                <button *ngIf="die2.keep" (click)="RollDie2()">&lt;&lt; Roll</button>
+            </td>
+            <td class="keepColumn">
+                <img *ngIf="die2.keep" (click)="RollDie2()" src="{{die2.imagePath}}" />
+            </td>
+        </tr>
+        <tr>
+            <td class="rollColumn">
+                <img *ngIf="!die3.keep" (click)="KeepDie3()" src="{{die3.imagePath}}" />
+            </td>
+            <td>
+                <button *ngIf="!die3.keep" (click)="KeepDie3()">Keep &gt;&gt;</button>
+                <button *ngIf="die3.keep" (click)="RollDie3()">&lt;&lt; Roll</button>
+            </td>
+            <td class="keepColumn">
+                <img *ngIf="die3.keep" (click)="RollDie3()" src="{{die3.imagePath}}" />
+            </td>
+        </tr>
+        <tr>
+            <td class="rollColumn">
+                <img *ngIf="!die4.keep" (click)="KeepDie4()" src="{{die4.imagePath}}" />
+            </td>
+            <td>
+                <button *ngIf="!die4.keep" (click)="KeepDie4()">Keep &gt;&gt;</button>
+                <button *ngIf="die4.keep" (click)="RollDie4()">&lt;&lt; Roll</button>
+            </td>
+            <td class="keepColumn">
+                <img *ngIf="die4.keep" (click)="RollDie4()" src="{{die4.imagePath}}" />
+            </td>
+        </tr>
+        <tr>
+            <td class="rollColumn">
+                <img *ngIf="!die5.keep" (click)="KeepDie5()" src="{{die5.imagePath}}" />
+            </td>
+            <td>
+                <button *ngIf="!die5.keep" (click)="KeepDie5()">Keep &gt;&gt;</button>
+                <button *ngIf="die5.keep" (click)="RollDie5()">&lt;&lt; Roll</button>
+            </td>
+            <td class="keepColumn">
+                <img *ngIf="die5.keep" (click)="RollDie5()" src="{{die5.imagePath}}" />
+            </td>
+        </tr>
+   </table>
+</div>
+
+<div>
+    <table>
+
+    </table>
+</div>
+

@@ -1,0 +1,142 @@
+<div>
+<div>
+    <span>
+        <button *ngIf="rollable"
+        (click)="RollDice()">{{rollButtonLabel}}</button>
+        <span *ngIf="MayScore()"  class="topSpanText">   You may score now</span>
+        <span *ngIf="MustScore()"   class="topSpanTextNoButton">   You MUST score now</span>
+    </span>    
+    <h2 *ngIf="CheckAllScoresFilled()" class="gameOver">GAME OVER! -- You scored {{GrandTotal()}}</h2>
+    <button *ngIf="CheckAllScoresFilled()" (click)="PlayNewGame()">Play Again!</button>
+</div>
+<hr />
+
+<div class="scoreDiv">
+    <table class="scoreBoard">
+        <th colspan="2">Scoreboard</th>
+        <tr (click)="ScoreOnes()" [class]="ScoreOnesFilled() ? 'filled' : 'available'">
+            <td class="scoreTD">1's</td><td class="scoreTD">{{scoreOnes}}</td>
+        </tr>
+        <tr (click)="ScoreTwos()" [class]="ScoreTwosFilled() ? 'filled' : 'available'">
+            <td class="scoreTD">2's</td><td class="scoreTD">{{scoreTwos}}</td>
+        </tr>
+        <tr (click)="ScoreThrees()" [class]="ScoreThreesFilled() ? 'filled' : 'available'">
+            <td class="scoreTD">3's</td><td class="scoreTD">{{scoreThrees}}</td>
+        </tr>
+        <tr (click)="ScoreFours()" [class]="ScoreFoursFilled() ? 'filled' : 'available'">
+            <td class="scoreTD">4's</td><td class="scoreTD">{{scoreFours}}</td>
+        </tr>
+        <tr (click)="ScoreFives()" [class]="ScoreFivesFilled() ? 'filled' : 'available'">
+            <td class="scoreTD">5's</td><td class="scoreTD">{{scoreFives}}</td>
+        </tr>
+        <tr (click)="ScoreSixes()" [class]="ScoreSixesFilled() ? 'filled' : 'available'">
+            <td class="scoreTD">6's</td><td class="scoreTD">{{scoreSixes}}</td>
+        </tr>
+        <tr class="immutable">
+            <td class="scoreTD thickBorder">Upper Subtotal</td><td class="scoreTD thickBorder">{{UpperSubtotal()}}</td>
+        </tr>
+        <tr class="immutable">
+            <td class="scoreTD thickBorder">Bonus</td><td class="scoreTD thickBorder">35</td>
+        </tr>
+        <tr class="immutable">
+            <td class="scoreTD thickBorder">Upper Total</td><td class="scoreID thickBorder">{{UpperTotal()}}</td>
+        </tr>
+        <tr (click)="Score3K()" [class]="Score3KFilled() ? 'filled' : 'available'">
+            <td class="scoreTD">3 of a kind</td><td class="scoreTD">{{score3K}}</td>
+        </tr>
+        <tr (click)="Score4K()" [class]="Score4KFilled() ? 'filled' : 'available'">
+            <td class="scoreTD">4 of a kind</td><td class="scoreTD">{{score4K}}</td>
+        </tr>
+        <tr (click)="ScoreFullHouse()" [class]="ScoreFullHouseFilled() ? 'filled' : 'available'">
+            <td class="scoreTD">Full House</td><td class="scoreTD">{{scoreFullHouse}}</td>
+        </tr>
+        <tr (click)="ScoreSmallStr()" [class]="ScoreSmallStrFilled() ? 'filled' : 'available'">
+            <td class="scoreTD">Sm. Straight</td><td class="scoreTD">{{scoreSmallStr}}</td>
+        </tr>
+        <tr (click)="ScoreLargeStr()" [class]="ScoreLargeStrFilled() ? 'filled' : 'available'">
+            <td class="scoreTD">Lg. Straight</td><td class="scoreTD">{{scoreLargeStr}}</td>
+        </tr>
+        <tr (click)="ScoreYahtzee()" [class]="ScoreYahtzeeFilled() ? 'filled' : 'available'">
+            <td class="scoreTD">YAHTZEE</td><td class="scoreTD">{{scoreYahtzee}}</td>
+        </tr>
+        <tr (click)="ScoreChance()" [class]="ScoreChanceFilled() ? 'filled' : 'available'">
+            <td class="scoreTD">Chance</td><td class="scoreTD">{{scoreChance}}</td>
+        </tr>
+        <tr class="immutable">
+            <td class="scoreTD thickBorder">Lower Subtotal</td><td class="scoreTD thickBorder">{{LowerSubtotal()}}</td>
+        </tr>
+        <tr class="immutable">
+            <td class="scoreTD thickBorder">Grand Total</td><td class="scoreID thickBorder">{{GrandTotal()}}</td>
+        </tr>       
+    </table>
+</div>
+<div class="rollDiv">
+    <table *ngIf="showRollTable">
+        <tr>
+            <td class="rollColumn">Roll These:</td><td></td><td class="keepColumn">{{scoreKeepLabel}}</td>
+        </tr>
+        <tr>
+            <td class="rollColumn">
+                <img *ngIf="!die1.keep" (click)="KeepDie1()" src="{{die1.imagePath}}" />
+            </td>
+            <td>
+                <button *ngIf="!die1.keep" (click)="KeepDie1()">Keep &gt;&gt;</button>
+                <button *ngIf="die1.keep" (click)="RollDie1()">&lt;&lt; Roll</button>
+            </td>
+            <td class="keepColumn">
+                <img *ngIf="die1.keep" (click)="RollDie1()" src="{{die1.imagePath}}" />
+            </td>
+        </tr>
+        <tr>
+            <td class="rollColumn">
+                <img *ngIf="!die2.keep" (click)="KeepDie2()" src="{{die2.imagePath}}" />
+            </td>
+            <td>
+                <button *ngIf="!die2.keep" (click)="KeepDie2()">Keep &gt;&gt;</button>
+                <button *ngIf="die2.keep" (click)="RollDie2()">&lt;&lt; Roll</button>
+            </td>
+            <td class="keepColumn">
+                <img *ngIf="die2.keep" (click)="RollDie2()" src="{{die2.imagePath}}" />
+            </td>
+        </tr>
+        <tr>
+            <td class="rollColumn">
+                <img *ngIf="!die3.keep" (click)="KeepDie3()" src="{{die3.imagePath}}" />
+            </td>
+            <td>
+                <button *ngIf="!die3.keep" (click)="KeepDie3()">Keep &gt;&gt;</button>
+                <button *ngIf="die3.keep" (click)="RollDie3()">&lt;&lt; Roll</button>
+            </td>
+            <td class="keepColumn">
+                <img *ngIf="die3.keep" (click)="RollDie3()" src="{{die3.imagePath}}" />
+            </td>
+        </tr>
+        <tr>
+            <td class="rollColumn">
+                <img *ngIf="!die4.keep" (click)="KeepDie4()" src="{{die4.imagePath}}" />
+            </td>
+            <td>
+                <button *ngIf="!die4.keep" (click)="KeepDie4()">Keep &gt;&gt;</button>
+                <button *ngIf="die4.keep" (click)="RollDie4()">&lt;&lt; Roll</button>
+            </td>
+            <td class="keepColumn">
+                <img *ngIf="die4.keep" (click)="RollDie4()" src="{{die4.imagePath}}" />
+            </td>
+        </tr>
+        <tr>
+            <td class="rollColumn">
+                <img *ngIf="!die5.keep" (click)="KeepDie5()" src="{{die5.imagePath}}" />
+            </td>
+            <td>
+                <button *ngIf="!die5.keep" (click)="KeepDie5()">Keep &gt;&gt;</button>
+                <button *ngIf="die5.keep" (click)="RollDie5()">&lt;&lt; Roll</button>
+            </td>
+            <td class="keepColumn">
+                <img *ngIf="die5.keep" (click)="RollDie5()" src="{{die5.imagePath}}" />
+            </td>
+        </tr>
+   </table>
+</div>
+</div>
+
+
