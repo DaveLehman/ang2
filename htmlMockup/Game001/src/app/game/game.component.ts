@@ -865,7 +865,7 @@ export class GameComponent implements OnInit {
     }
     else
     {
-      console.log('CheckAllScoresFilled returning true');
+      console.log('CheckAllScoresFilled returning false');
       return false;
     }
 
